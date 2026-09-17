@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CARS INDEX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER GLOBAL : visible sur tous les écrans sauf l'accueil -->
+  <header class="app-header" id="appHeader">
+
+    <button class="header-brand" data-nav="accueil" aria-label="Retour à l'accueil">
+      <span class="brand-mark"></span>
+      <span class="brand-name">CARS INDEX</span>
+    </button>
+
+    <button class="header-user" data-nav="profil" aria-label="Voir le profil">
+      <span class="user-level">
+        NIV. <strong id="userLevel">7</strong>
+      </span>
+
+      <span class="user-avatar" id="userAvatar">A</span>
+    </button>
+
+  </header>
+
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="app-main">
+
+    <!-- =====================================================
+         ACCUEIL
+         ===================================================== -->
+    <section class="view" id="view-accueil" data-view="accueil">
+
+      <div class="accueil-card">
+
+        <!-- Header accueil -->
+        <div class="app-header-inner">
+
+          <button class="accueil-brand" data-nav="accueil" aria-label="Accueil">
+            <span class="brand-dot"></span>
+            <span class="brand-title">CARS INDEX</span>
+          </button>
+
+
+          <button class="accueil-user" data-nav="profil" aria-label="Voir le profil">
+
+            <span class="home-avatar">A</span>
+
+            <span class="home-progress">
+              <span class="home-progress-fill"></span>
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- Les 3 dernières voitures / photos -->
+        <div class="car-carousel" id="carCarousel">
+
+          <!-- Généré par script.js -->
+
+          <button
+            class="carousel-next"
+            id="carouselNext"
+            aria-label="Voiture suivante">
+            ›
+          </button>
+
+        </div>
+
+
+        <!-- Amis + Objectif -->
+        <div class="home-info-row">
+
+          <!-- AMIS -->
+          <button class="amis-widget" data-nav="amis">
+
+            <span class="friends-main">
+
+              <span class="friends-status-row">
+                <span class="status-dot status-online"></span>
+
+                <span class="amis-widget-label">
+                  Amis
+                </span>
+              </span>
+
+
+              <span class="amis-widget-sub" id="amisCount">
+                0 connecté
+              </span>
+
+            </span>
+
+
+            <span class="amis-widget-cta">
+              Ajouter
+            </span>
+
+          </button>
+
+
+          <!-- OBJECTIF -->
+          <button class="objective-widget" data-nav="collection">
+
+            <span class="objective-label">
+              OBJECTIF
+            </span>
+
+
+            <!-- Placeholder visuel uniquement -->
+            <div class="objective-car">
+              <div class="objective-car-shape"></div>
+            </div>
+
+
+            <span class="objective-name" id="objectiveName">
+              Voiture à trouver
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- DUEL -->
+        <button class="duel-tile-big" data-nav="duel">
+
+          <span class="duel-top">⚔</span>
+
+          <span class="duel-title">
+            DUEL
+          </span>
+
+          <span class="duel-sub">
+            Affronte d'autres joueurs
+          </span>
+
+        </button>
+
+
+        <!-- Navigation uniquement sur l'accueil -->
+        <div class="mini-row">
+
+          <button class="mini-tile" data-nav="collection">
+            <span class="mini-icon">◫</span>
+            <span>Index</span>
+          </button>
+
+
+          <button class="mini-tile mini-photo" data-nav="photo">
+            <span class="camera-icon">●</span>
+            <span>Photo</span>
+          </button>
+
+
+          <button class="mini-tile" data-nav="quetes">
+            <span class="mini-icon">✦</span>
+            <span>Quêtes</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GALERIE
+         ===================================================== -->
+    <section class="view screen-shell" id="view-galerie" data-view="galerie" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+      <div class="screen-heading">
+        <span class="eyebrow">ARCHIVES</span>
+        <h1 class="view-title">Galerie</h1>
+      </div>
+
+      <p class="view-desc">
+        Les photos prises directement dans le jeu apparaissent ici.
+      </p>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AMIS / SOCIAL
+         ===================================================== -->
+    <section class="view screen-shell" id="view-amis" data-view="amis" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+      <div class="screen-heading">
+        <span class="eyebrow">SOCIAL</span>
+        <h1 class="view-title">Amis</h1>
+      </div>
+
+
+      <div class="panel social-panel">
+
+        <div class="panel-orb"></div>
+
+        <span class="panel-kicker">
+          CONNEXION
+        </span>
+
+        <p class="view-desc">
+          Ajoute des joueurs grâce à leur QR code.
+        </p>
+
+        <div class="social-actions">
+          <button class="btn btn--primary" id="btnScanQr">
+            Scanner un QR code
+          </button>
+
+          <button class="btn btn--ghost" id="btnMyQr">
+            Voir mon QR code
+          </button>
+        </div>
+
+      </div>
+
+
+      <h2 class="section-label">
+        Ta liste
+      </h2>
+
+      <ul class="friend-list" id="friendList"></ul>
+
+    </section>
+
+
+    <!-- =====================================================
+         COLLECTION / INDEX
+         ===================================================== -->
+    <section class="view screen-shell" id="view-collection" data-view="collection" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+
+      <div class="screen-heading collection-heading">
+
+        <div>
+          <span class="eyebrow">TON GARAGE</span>
+          <h1 class="view-title">Collection</h1>
+        </div>
+
+        <span class="collection-count">
+          INDEX
+        </span>
+
+      </div>
+
+
+      <div class="search-wrap">
+        <span class="search-symbol">⌕</span>
+
+        <input
+          class="search-input"
+          id="searchCar"
+          type="text"
+          placeholder="Rechercher une voiture..."
+        >
+      </div>
+
+      <!-- Filtres : catégorie + favoris -->
+      <div class="collection-filters">
+
+  <select class="filter-select filter-select-categorie" id="filterCategorie">
+    <option value="">Toutes catégories</option>
+  </select>
+
+  <button class="btn btn--ghost filter-toggle" id="filterPossedee" type="button" data-etat="toutes" aria-pressed="false">
+    Toutes
+  </button>
+
+  <button class="btn btn--ghost filter-toggle" id="filterFavoris" type="button">
+    ★ Favoris
+  </button>
+
+</div>
+
+      <div class="collection-grid" id="collectionGrid"></div>
+
+
+    <!-- Fiche voiture (modal) -->
+    <div class="fiche-overlay" id="ficheModal" hidden>
+      <div class="fiche-modal">
+
+        <button class="fiche-close" id="ficheClose" aria-label="Fermer" type="button">✕</button>
+
+        <button class="fiche-action-btn" id="ficheAction" type="button"></button>
+
+        <span class="eyebrow" id="ficheCategorie"></span>
+        <h2 class="view-title" id="ficheNom"></h2>
+        <div class="fiche-annee" id="ficheAnnee"></div>
+
+        <ul class="fiche-specs">
+          <li><span class="fiche-spec-label">Moteur</span><span id="ficheMoteur"></span></li>
+          <li><span class="fiche-spec-label">Chevaux</span><span id="ficheChevaux"></span> ch</li>
+          <li><span class="fiche-spec-label">Boîte</span><span id="ficheBoite"></span></li>
+          <li><span class="fiche-spec-label">Prix à la sortie</span><span id="fichePrix"></span></li>
+        </ul>
+
+      </div>
+    </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PHOTO / IA
+         ===================================================== -->
+    <section class="view screen-shell" id="view-photo" data-view="photo" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+
+      <div class="screen-heading">
+
+        <span class="eyebrow">
+          RECONNAISSANCE
+        </span>
+
+        <h1 class="view-title">
+          Scanner une voiture
+        </h1>
+
+      </div>
+
+
+      <div class="scan-frame" id="scanFrame">
+
+  <video
+    id="camera"
+    autoplay
+    playsinline>
+  </video>
+
+  <span class="scan-hint">
+    Vise la voiture puis prends la photo
+  </span>
+
+</div>
+
+<canvas id="photoCanvas" hidden></canvas>
+
+<button class="btn btn--primary btn--wide" id="btnCapture">
+  📸 Prendre la photo
+</button>
+
+
+      <div class="scan-result" id="scanResult" hidden></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DUEL
+         ===================================================== -->
+    <section class="view screen-shell" id="view-duel" data-view="duel" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+
+      <div class="screen-heading duel-heading">
+
+        <span class="eyebrow">
+          AFFRONTEMENT
+        </span>
+
+        <h1 class="view-title">
+          Duel
+        </h1>
+
+      </div>
+
+
+      <div class="pv-row">
+
+        <div class="pv-block">
+
+          <div class="pv-label-row">
+            <span class="pv-name">Toi</span>
+            <span class="pv-value">
+              <span id="pvPlayerValue">50</span> PV
+            </span>
+          </div>
+
+          <div class="pv-bar">
+            <div
+              class="pv-bar-fill"
+              id="pvPlayer"
+              style="width:100%">
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="pv-vs">
+          VS
+        </div>
+
+
+        <div class="pv-block pv-block-enemy">
+
+          <div class="pv-label-row">
+            <span class="pv-name">Adversaire</span>
+            <span class="pv-value">
+              <span id="pvEnemyValue">50</span> PV
+            </span>
+          </div>
+
+          <div class="pv-bar pv-bar--enemy">
+            <div
+              class="pv-bar-fill"
+              id="pvEnemy"
+              style="width:100%">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <h2 class="section-label">
+        Ton garage
+      </h2>
+
+      <p class="duel-help">
+        Choisis la voiture que tu veux jouer.
+      </p>
+
+
+      <div class="duel-garage" id="duelGarage"></div>
+
+
+      <button
+        class="btn btn--primary btn--wide"
+        id="btnMiser"
+        disabled>
+        Miser cette voiture
+      </button>
+
+
+      <div class="duel-log" id="duelLog"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         QUÊTES
+         ===================================================== -->
+    <section class="view screen-shell" id="view-quetes" data-view="quetes" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+
+      <div class="screen-heading">
+
+        <span class="eyebrow">
+          PROGRESSION
+        </span>
+
+        <h1 class="view-title">
+          Quêtes
+        </h1>
+
+      </div>
+
+
+      <div class="quest-intro">
+
+        <span class="quest-week">
+          SEMAINE EN COURS
+        </span>
+
+        <p>
+          Termine les objectifs pour gagner des points.
+        </p>
+
+      </div>
+
+
+      <ul class="quest-list" id="questList"></ul>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROFIL
+         ===================================================== -->
+    <section class="view screen-shell" id="view-profil" data-view="profil" hidden>
+
+      <button class="back-btn" data-nav="accueil">
+        ← Retour
+      </button>
+
+
+      <div class="profile-card">
+
+        <div class="profile-avatar" id="profileAvatar">
+          A
+        </div>
+
+
+        <div class="profile-name" id="profileName">
+          Joueur
+        </div>
+
+
+        <div class="profile-level">
+          Niveau <span id="profileLevel">7</span>
+        </div>
+
+
+        <div class="profile-progress">
+          <span class="profile-progress-fill"></span>
+        </div>
+
+      </div>
+
+
+      <button class="btn btn--ghost btn--wide">
+        Modifier le profil
+      </button>
+
+
+      <h2 class="section-label">
+        Voitures équipées
+      </h2>
+
+
+      <div class="equipped-grid" id="equippedGrid"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Ancienne navigation globale conservée pour la logique JS,
+       masquée visuellement : la navigation principale de l'accueil
+       est désormais dans .mini-row -->
+  <nav class="bottom-nav" aria-hidden="true">
+
+    <button class="nav-btn" data-nav="accueil" data-icon="⌂">
+      Accueil
+    </button>
+
+    <button class="nav-btn" data-nav="collection" data-icon="◫">
+      Collection
+    </button>
+
+    <button class="nav-btn" data-nav="duel" data-icon="⚔">
+      Duel
+    </button>
+
+    <button class="nav-btn" data-nav="quetes" data-icon="✦">
+      Quêtes
+    </button>
+
+    <button class="nav-btn" data-nav="profil" data-icon="◐">
+      Profil
+    </button>
+
+  </nav>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

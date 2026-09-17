@@ -1,0 +1,17 @@
+[
+  { "id": "c01", "marque": "Toyota",       "modele": "Corolla",         "annee": 2023, "categorie": "Daily",     "points": 5 },
+  { "id": "c02", "marque": "Volkswagen",   "modele": "Golf GTI",       "annee": 2022, "categorie": "Daily",     "points": 8 },
+  { "id": "c03", "marque": "BMW",          "modele": "M2",              "annee": 2023, "categorie": "Sport",     "points": 14 },
+  { "id": "c04", "marque": "Porsche",      "modele": "718 Cayman GT4",  "annee": 2022, "categorie": "Sport",     "points": 17 },
+  { "id": "c05", "marque": "Jeep",         "modele": "Wrangler",        "annee": 2021, "categorie": "SUV",       "points": 9 },
+  { "id": "c06", "marque": "Lamborghini",  "modele": "Urus",            "annee": 2023, "categorie": "SUV",       "points": 19 },
+  { "id": "c07", "marque": "Lamborghini",  "modele": "Urus Performante","annee": 2023, "categorie": "SUV",       "points": 21 },
+  { "id": "c08", "marque": "Ferrari",      "modele": "Purosangue",      "annee": 2023, "categorie": "SUV",       "points": 26 },
+  { "id": "c09", "marque": "Ferrari",      "modele": "812 Competizione","annee": 2022, "categorie": "Supercar",  "points": 23 },
+  { "id": "c10", "marque": "McLaren",      "modele": "720S",            "annee": 2021, "categorie": "Supercar",  "points": 22 },
+  { "id": "c11", "marque": "Lamborghini",  "modele": "Huracan STO",     "annee": 2022, "categorie": "Supercar",  "points": 24 },
+  { "id": "c12", "marque": "Pagani",       "modele": "Huayra",          "annee": 2020, "categorie": "Hypercar",  "points": 27 },
+  { "id": "c13", "marque": "Bugatti",      "modele": "Chiron",          "annee": 2021, "categorie": "Hypercar",  "points": 29 },
+  { "id": "c14", "marque": "Koenigsegg",   "modele": "Jesko",           "annee": 2022, "categorie": "Hypercar",  "points": 30 },
+  { "id": "c15", "marque": "Lamborghini",  "modele": "Revuelto",        "annee": 2024, "categorie": "Hypercar",  "points": 28 }
+]
